@@ -22,6 +22,10 @@ class Rectangle :
         turtle.speed(0) #Make turtle move as fast as possible.
         self.has_been_drawn=False #Keep track of whether shape has been drawn.
 
+        self.x=0
+        self.y=0
+
+        self.angel=0
     def set_length(self,new_length):
         """
         Change the length of the rectangle.
@@ -50,6 +54,11 @@ class Rectangle :
         """
         return self.length*self.height
 
+    def start(self, x, y):
+        self.x=x
+        self.y=y
+    def set_angle(self, angle):
+        self.angle = angle
     def draw_shape(self):
         """
         Draw the shape, starting at 0,0.
@@ -58,11 +67,12 @@ class Rectangle :
         """
         self.turtle.clear() #Remove old drawings (if they exist)
         self.turtle.penup()
-        self.turtle.goto(0,0)
+        self.turtle.goto(self.x,self.y)
+        self.turtle.tiltangle(self.angel)
         self.turtle.pendown()
-        self.turtle.goto(self.length,0)
-        self.turtle.goto(self.length,self.height)
-        self.turtle.goto(0,self.height)
-        self.turtle.goto(0,0)
+        self.turtle.goto(self.length+self.x,self.y)
+        self.turtle.goto(self.length+self.x,self.height+self.y)
+        self.turtle.goto(self.x,self.height+self.y)
+        self.turtle.goto(self.x,self.y)
         self.turtle.penup()
         self.has_been_drawn=True

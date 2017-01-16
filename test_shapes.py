@@ -8,6 +8,8 @@ import time
 ###############################
 
 my_rect=Rectangle(10,10)
+my_rect.start(-10,-100)
+my_rect.set_angle(50)
 print('The area of the rectangle is '+str(my_rect.get_area())+'.')
 
 my_rect.set_length(50)
@@ -25,7 +27,8 @@ time.sleep(1) #Wait 1 second
 ###############################
 
 my_square=Square(50)
-
+my_square.start(35,-25)
+my_square.set_angle(135)
 my_square.set_length(10)
 print('The area of the square is '+str(my_square.get_area())+'.')
 
